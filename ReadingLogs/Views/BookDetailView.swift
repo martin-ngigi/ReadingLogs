@@ -38,6 +38,24 @@ struct BookDetailView: View {
                         .keyboardType(.numberPad)
                 }
                 .textFieldStyle(.roundedBorder)
+                
+                Button("Save"){
+                    guard let publishedYear = publishedYear else { return }
+                    book.title = title
+                    book.author = author
+                    book.publishedYear = publishedYear
+                    
+                    do {
+                        try context.save()
+                    }
+                    catch{
+                        print("DEBUG: Failed to update book with error \(error.localizedDescription)")
+                    }
+                    
+                    dismiss()
+                    
+                }
+                .buttonStyle(.bordered)
             }
             else{
                 Text(book.title)
