@@ -12,14 +12,17 @@ struct ContentView: View {
     @State private var launcAddNew = false
     
     var body: some View {
-        BookListView()
-//        Button("Add new book"){
-//            launcAddNew.toggle()
-//        }
-//        .buttonStyle(.bordered)
-//        .sheet(isPresented: $launcAddNew, content: {
-//            AddNewBookView()
-//        })
+        VStack {
+            BookListView()
+            
+            Button("Add new book"){
+                launcAddNew.toggle()
+            }
+            .buttonStyle(.bordered)
+            .sheet(isPresented: $launcAddNew, content: {
+                AddNewBookView()
+            })
+        }
     }
 }
 

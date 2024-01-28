@@ -15,6 +15,7 @@
 		A3A59E3F2B66098A00245973 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E3E2B66098A00245973 /* Book.swift */; };
 		A3A59E422B660B6600245973 /* AddNewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E412B660B6600245973 /* AddNewBookView.swift */; };
 		A3A59E442B66131E00245973 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E432B66131E00245973 /* BookListView.swift */; };
+		A3A59E462B6614FA00245973 /* BookCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E452B6614FA00245973 /* BookCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A3A59E3E2B66098A00245973 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		A3A59E412B660B6600245973 /* AddNewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookView.swift; sourceTree = "<group>"; };
 		A3A59E432B66131E00245973 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		A3A59E452B6614FA00245973 /* BookCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				A3A59E412B660B6600245973 /* AddNewBookView.swift */,
 				A3A59E432B66131E00245973 /* BookListView.swift */,
+				A3A59E452B6614FA00245973 /* BookCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3A59E422B660B6600245973 /* AddNewBookView.swift in Sources */,
+				A3A59E462B6614FA00245973 /* BookCellView.swift in Sources */,
 				A3A59E2F2B6608C900245973 /* ContentView.swift in Sources */,
 				A3A59E442B66131E00245973 /* BookListView.swift in Sources */,
 				A3A59E2D2B6608C900245973 /* ReadingLogsApp.swift in Sources */,
