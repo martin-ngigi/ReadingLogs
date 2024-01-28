@@ -14,6 +14,8 @@ struct BookListView: View {
     
     @Query private var books: [Book] // Empty book array
     
+    @State private var presentAddNew = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -25,6 +27,21 @@ struct BookListView: View {
             .navigationTitle("Reading Logs")
             .navigationDestination(for: Book.self) { book in
                 BookDetailView(book: book)
+            }
+            .toolbar{
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    
+                    Button{
+                        presentAddNew.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .sheet(isPresented: $presentAddNew, content: {
+                        AddNewBookView()
+                    })
+                }
             }
         }
     }
