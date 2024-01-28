@@ -28,9 +28,7 @@ struct BookCellView: View {
                 .padding(.top, 20)
             }
         }
-        .navigationDestination(for: Book.self) { book in
-            BookDetailView(book: book)
-        }
+
     }
 }
 
