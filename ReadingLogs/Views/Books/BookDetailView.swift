@@ -22,12 +22,16 @@ struct BookDetailView: View {
     
     @State private var showAddNewNotes = false
     
+    @State private var selectedGenres = Set<Genre>()
+        
     // initialize values
     init(book: Book){
         self.book = book
         self._title = State.init(initialValue: book.title)
         self._author = State.init(initialValue: book.author)
         self._publishedYear = State.init(initialValue: book.publishedYear)
+        
+        self._selectedGenres = State.init(initialValue: Set(book.genre))
     }
     
     var body: some View {
@@ -38,6 +42,11 @@ struct BookDetailView: View {
                     TextField("Book author", text: $author)
                     TextField("Book published year", value: $publishedYear, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
+                    
+                    // genre
+                    GenereSelectionView(selectedGenres: $selectedGenres)
+                        .frame(height: 300)
+                    Text("After editing/adding, click save button")
                 }
                 .textFieldStyle(.roundedBorder)
                 
@@ -46,6 +55,17 @@ struct BookDetailView: View {
                     book.title = title
                     book.author = author
                     book.publishedYear = publishedYear
+                    
+                    // genre
+                    book.genre = []
+                    book.genre = Array(selectedGenres)
+                    selectedGenres.forEach { genre in
+                        if !genre.books.contains(where: { b in
+                            b.title == book.title
+                        }) {
+                            genre.books.append(book)
+                        }
+                    }
                     
                     do {
                         try context.save()
