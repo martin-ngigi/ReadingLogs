@@ -20,6 +20,8 @@ struct BookDetailView: View {
     @State private var author: String = ""
     @State private var publishedYear: Int? = nil
     
+    @State private var showAddNewNotes = false
+    
     // initialize values
     init(book: Book){
         self.book = book
@@ -61,6 +63,26 @@ struct BookDetailView: View {
                 Text(book.title)
                 Text(book.author)
                 Text(book.publishedYear.description)
+            }
+            
+            Section("Notes"){
+                Button("Add new note"){
+                    showAddNewNotes.toggle()
+                }
+                .sheet(isPresented: $showAddNewNotes) {
+                    NavigationStack{
+                        AddNewNoteView(book: book)
+                    }
+                    .presentationDetents([.fraction(0.3)]) // 30% of the view
+                    .interactiveDismissDisabled() // prevent user from dismissing the the View by swipping down or pressing outside the sheet
+                }
+                
+                if book.notes.isEmpty {
+                    ContentUnavailableView("No notes", image: "notes")
+                }
+                else{
+                    NotesListView(book: book)
+                }
             }
         }
         .toolbar {

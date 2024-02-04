@@ -15,6 +15,12 @@ final class Book {
     var author: String
     var publishedYear: Int
     
+    // .cascade: Whenever this Book is Deleted, Delete Note as well
+    // inverse referenceses the Note
+    // This is a oneToMany relationship
+    @Relationship( deleteRule: .cascade, inverse: \Note.book)
+    var notes = [Note]() // initialize empty array of notes
+    
     // initilaizer.
     init(title: String, author: String, publishedYear: Int) {
         self.title = title
