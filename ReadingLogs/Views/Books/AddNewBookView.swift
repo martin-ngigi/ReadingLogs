@@ -24,6 +24,8 @@ struct AddNewBookView: View {
         !title.isEmpty && !author.isEmpty && publishedYear != nil
     }
     
+    @State private var selectedGenre = Set<Genre>() // initialize with empty set
+    
     var body: some View {
         NavigationStack {
             VStack (alignment: .leading){
@@ -42,6 +44,8 @@ struct AddNewBookView: View {
                 TextField("Enter published year", value: $publishedYear, format: .number)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.numberPad)
+                
+                GenereSelectionView(selectedGenres: $selectedGenre)
                 
                 HStack{
                     Button("Cancel", role: .destructive){

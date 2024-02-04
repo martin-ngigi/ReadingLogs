@@ -16,12 +16,15 @@ struct GenreListView: View {
     
     @State private var presentAddNew = false
     
+    @Environment(\.modelContext) private var context
+    
     var body: some View {
         NavigationStack{
             List{
                 ForEach(genres) { genre in
                     Text(genre.name)
                 }
+                .onDelete(perform: deleteGenre(indexSet:))
             }
             .navigationTitle("Literery Genre")
             .toolbar{
@@ -38,6 +41,20 @@ struct GenreListView: View {
                             .interactiveDismissDisabled() // present unwanted dismismiss
                     }
                 }
+            }
+        }
+    }
+    
+    private func deleteGenre(indexSet: IndexSet) {
+        indexSet.forEach { index in
+            let genreToDelete = genres[index]
+            context.delete(genreToDelete)
+            
+            do{
+                try context.save()
+            }
+            catch{
+                print("DEBUG: Failed to delete genre with error \(error.localizedDescription)")
             }
         }
     }

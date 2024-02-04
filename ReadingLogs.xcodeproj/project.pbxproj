@@ -13,6 +13,7 @@
 		A39ABEE52B6F687E009498EA /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEE42B6F687E009498EA /* Genre.swift */; };
 		A39ABEE72B6F6A00009498EA /* GenreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEE62B6F6A00009498EA /* GenreListView.swift */; };
 		A39ABEE92B6F6BAC009498EA /* AddNewGenreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */; };
+		A39ABEEB2B6F758D009498EA /* GenereSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */; };
 		A3A59E2D2B6608C900245973 /* ReadingLogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */; };
 		A3A59E2F2B6608C900245973 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E2E2B6608C900245973 /* ContentView.swift */; };
 		A3A59E312B6608CB00245973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3A59E302B6608CB00245973 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		A39ABEE42B6F687E009498EA /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		A39ABEE62B6F6A00009498EA /* GenreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListView.swift; sourceTree = "<group>"; };
 		A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGenreView.swift; sourceTree = "<group>"; };
+		A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenereSelectionView.swift; sourceTree = "<group>"; };
 		A3A59E292B6608C900245973 /* ReadingLogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingLogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingLogsApp.swift; sourceTree = "<group>"; };
 		A3A59E2E2B6608C900245973 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A39ABEEC2B6F75A4009498EA /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				A3A59E432B66131E00245973 /* BookListView.swift */,
+				A3A59E412B660B6600245973 /* AddNewBookView.swift */,
+				A3A59E452B6614FA00245973 /* BookCellView.swift */,
+				A3A59E472B661A7F00245973 /* BookDetailView.swift */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		A39ABEED2B6F75AD009498EA /* Genres */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */,
+				A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */,
+				A39ABEE62B6F6A00009498EA /* GenreListView.swift */,
+			);
+			path = Genres;
+			sourceTree = "<group>";
+		};
+		A39ABEEE2B6F75B4009498EA /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABEE02B6F5EB3009498EA /* AddNewNoteView.swift */,
+				A39ABEE22B6F61E4009498EA /* NotesListView.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
 		A3A59E202B6608C900245973 = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +141,9 @@
 		A3A59E402B660B5600245973 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A3A59E412B660B6600245973 /* AddNewBookView.swift */,
-				A3A59E432B66131E00245973 /* BookListView.swift */,
-				A3A59E452B6614FA00245973 /* BookCellView.swift */,
-				A3A59E472B661A7F00245973 /* BookDetailView.swift */,
-				A39ABEE02B6F5EB3009498EA /* AddNewNoteView.swift */,
-				A39ABEE22B6F61E4009498EA /* NotesListView.swift */,
-				A39ABEE62B6F6A00009498EA /* GenreListView.swift */,
-				A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */,
+				A39ABEEE2B6F75B4009498EA /* Notes */,
+				A39ABEED2B6F75AD009498EA /* Genres */,
+				A39ABEEC2B6F75A4009498EA /* Books */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +230,7 @@
 				A3A59E3F2B66098A00245973 /* Book.swift in Sources */,
 				A39ABEE32B6F61E4009498EA /* NotesListView.swift in Sources */,
 				A39ABEE72B6F6A00009498EA /* GenreListView.swift in Sources */,
+				A39ABEEB2B6F758D009498EA /* GenereSelectionView.swift in Sources */,
 				A3A59E482B661A7F00245973 /* BookDetailView.swift in Sources */,
 				A39ABEE92B6F6BAC009498EA /* AddNewGenreView.swift in Sources */,
 			);
