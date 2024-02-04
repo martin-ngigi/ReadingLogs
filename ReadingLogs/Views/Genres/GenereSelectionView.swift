@@ -22,7 +22,7 @@ struct GenereSelectionView: View {
                         
                         Spacer()
                         
-                        Image(systemName: selectedGenres.contains(genre) ? "checkmark.circle.fill" : "circl.dashed")
+                        Image(systemName: selectedGenres.contains(genre) ? "checkmark.circle.fill" : "circle.dashed")
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {

@@ -24,7 +24,7 @@ struct AddNewBookView: View {
         !title.isEmpty && !author.isEmpty && publishedYear != nil
     }
     
-    @State private var selectedGenre = Set<Genre>() // initialize with empty set
+    @State private var selectedGenres = Set<Genre>() // initialize with empty set
     
     var body: some View {
         NavigationStack {
@@ -45,7 +45,7 @@ struct AddNewBookView: View {
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.numberPad)
                 
-                GenereSelectionView(selectedGenres: $selectedGenre)
+                GenereSelectionView(selectedGenres: $selectedGenres)
                 
                 HStack{
                     Button("Cancel", role: .destructive){
@@ -58,6 +58,14 @@ struct AddNewBookView: View {
                     Button("Save") {
                         guard let publishedYear else { return }
                         let book = Book(title: title, author: author, publishedYear: publishedYear)
+                        
+                        ///save genre
+                        book.genre = Array(selectedGenres)
+                        selectedGenres.forEach { genre in
+                            genre.books.append(book)
+                            context.insert(genre)
+                        }
+                        
                         
                         context.insert(book)
                         
