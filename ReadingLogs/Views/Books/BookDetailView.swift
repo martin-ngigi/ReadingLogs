@@ -40,7 +40,7 @@ struct BookDetailView: View {
                 Group {
                     TextField("Book title", text: $title)
                     TextField("Book author", text: $author)
-                    TextField("Book published year", value: $publishedYear, formatter: NumberFormatter())
+                    TextField("Book published year", value: $publishedYear, format: .number.grouping(.never)) //.grouping(.never) removes the unwanted coma
                         .keyboardType(.numberPad)
                     
                     // genre
@@ -98,23 +98,26 @@ struct BookDetailView: View {
                 }
             }
             
-            Section("Notes"){
-                Button("Add new note"){
-                    showAddNewNotes.toggle()
-                }
-                .sheet(isPresented: $showAddNewNotes) {
-                    NavigationStack{
-                        AddNewNoteView(book: book)
+            // Show notes when we are not editing
+            if !isEditing {
+                Section("Notes"){
+                    Button("Add new note"){
+                        showAddNewNotes.toggle()
                     }
-                    .presentationDetents([.fraction(0.3)]) // 30% of the view
-                    .interactiveDismissDisabled() // prevent user from dismissing the the View by swipping down or pressing outside the sheet
-                }
-                
-                if book.notes.isEmpty {
-                    ContentUnavailableView("No notes", image: "notes")
-                }
-                else{
-                    NotesListView(book: book)
+                    .sheet(isPresented: $showAddNewNotes) {
+                        NavigationStack{
+                            AddNewNoteView(book: book)
+                        }
+                        .presentationDetents([.fraction(0.3)]) // 30% of the view
+                        .interactiveDismissDisabled() // prevent user from dismissing the the View by swipping down or pressing outside the sheet
+                    }
+                    
+                    if book.notes.isEmpty {
+                        ContentUnavailableView("No notes", image: "notes")
+                    }
+                    else{
+                        NotesListView(book: book)
+                    }
                 }
             }
         }
@@ -124,6 +127,7 @@ struct BookDetailView: View {
                 "Edit"){
                     isEditing.toggle()
                 }
+                .hidden(isEnabled: isEditing) // Check Modifiers folder
             }
         }
         .navigationTitle("Book Details")

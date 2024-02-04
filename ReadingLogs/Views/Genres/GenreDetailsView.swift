@@ -16,7 +16,7 @@ struct GenreDetailsView: View {
         VStack{
             Group{
                 if genre.books.isEmpty {
-                    ContentUnavailableView("No Books under this genre", systemImage: "square.stck.3d.up.slash")
+                    ContentUnavailableView("No Books under this genre", systemImage: "square.stack.3d.up.slash")
                 }
                 else{
                     List(genre.books) { book in
