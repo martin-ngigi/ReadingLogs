@@ -21,6 +21,12 @@ final class Book {
     @Relationship( deleteRule: .cascade, inverse: \Note.book)
     var notes = [Note]() // initialize empty array of notes
     
+    // .nullify: When book is deleted, the Genre shoul not be deleted. This is because there could be other books that use that genre name
+    // This is a manyToMany relationship
+    @Relationship(deleteRule: .nullify, inverse: \Genre.books)
+    var genre = [Genre]()
+    
+    
     // initilaizer.
     init(title: String, author: String, publishedYear: Int) {
         self.title = title
