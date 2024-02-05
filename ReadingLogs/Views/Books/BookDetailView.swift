@@ -96,6 +96,21 @@ struct BookDetailView: View {
                         }
                     }
                 }
+                
+                // display image
+                if let cover = book.cover, let image = UIImage(data: cover) {
+                    HStack {
+                        Text("Book Cover")
+                        
+                        Spacer()
+                        
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(.rect(cornerRadius: 10))
+                            .frame(height: 100)
+                    }
+                }
             }
             
             // Show notes when we are not editing
