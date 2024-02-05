@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct BookDetailView: View {
     
@@ -23,6 +24,9 @@ struct BookDetailView: View {
     @State private var showAddNewNotes = false
     
     @State private var selectedGenres = Set<Genre>()
+    
+    @State private var selectedCover: PhotosPickerItem?
+    @State private var selectedCoverData: Data?
         
     // initialize values
     init(book: Book){
@@ -34,6 +38,45 @@ struct BookDetailView: View {
         self._selectedGenres = State.init(initialValue: Set(book.genre))
     }
     
+    private var bookCoverUI: some View {
+        HStack{
+            PhotosPicker(
+                selection: $selectedCover,
+                matching: .images,
+                photoLibrary: .shared()
+            ){
+                
+                Label(book.cover == nil ? "Add Cover" : "Update Cover", systemImage: "book.closed")
+            }
+            .padding()
+            
+            Spacer()
+            
+            if let selectedCoverData, let image = UIImage(data: selectedCoverData){
+                
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(.rect(cornerRadius: 10))
+                    .frame(width: 100, height: 100)
+            }
+            else if let cover = book.cover, let image = UIImage(data: cover){
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(.rect(cornerRadius: 10))
+                    .frame(width: 100, height: 100)
+            }
+            else {
+                Image(systemName: "photo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+            }
+        }
+        
+    }
+    
     var body: some View {
         Form{
             if isEditing {
@@ -43,10 +86,13 @@ struct BookDetailView: View {
                     TextField("Book published year", value: $publishedYear, format: .number.grouping(.never)) //.grouping(.never) removes the unwanted coma
                         .keyboardType(.numberPad)
                     
+                    
+                    // book cover
+                    bookCoverUI
+                    
                     // genre
                     GenereSelectionView(selectedGenres: $selectedGenres)
                         .frame(height: 300)
-                    Text("After editing/adding, click save button")
                 }
                 .textFieldStyle(.roundedBorder)
                 
@@ -65,6 +111,11 @@ struct BookDetailView: View {
                         }) {
                             genre.books.append(book)
                         }
+                    }
+                    
+                    // save book cover
+                    if let selectedCoverData {
+                        book.cover = selectedCoverData
                     }
                     
                     do {
@@ -96,7 +147,7 @@ struct BookDetailView: View {
                         }
                     }
                 }
-                
+                                
                 // display image
                 if let cover = book.cover, let image = UIImage(data: cover) {
                     HStack {
@@ -143,6 +194,12 @@ struct BookDetailView: View {
                     isEditing.toggle()
                 }
                 .hidden(isEnabled: isEditing) // Check Modifiers folder
+            }
+        }
+        .task(id: selectedCover) {
+            // set selected image
+            if let data = try? await selectedCover?.loadTransferable(type: Data.self){
+                selectedCoverData = data
             }
         }
         .navigationTitle("Book Details")

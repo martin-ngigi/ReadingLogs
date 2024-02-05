@@ -22,6 +22,7 @@ struct GenreDetailsView: View {
                     List(genre.books) { book in
                         Text(book.title)
                     }
+                    .navigationTitle("Books in \(genre.name)")
                 }
             }
         }
