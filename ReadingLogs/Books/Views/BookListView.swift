@@ -30,18 +30,17 @@ struct BookListView: View {
     var body: some View {
         NavigationStack {
             List {
-                //ForEach(books){ book in
+//                ForEach(books){ book in
                 ForEach(filteredBooks){ book in
                     BookCellView(book: book)
                 }
                 .onDelete(perform: delete(indexSet:))
-                .searchable(
-                    text: $searchItem,
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "Search book title"
-                )
-                
             }
+            .searchable(
+                text: $searchItem,
+                placement: .navigationBarDrawer(displayMode: .always),
+                prompt: "Search book title"
+            )
             .navigationTitle("Reading Logs")
             .navigationDestination(for: Book.self) { book in
                 BookDetailView(book: book)

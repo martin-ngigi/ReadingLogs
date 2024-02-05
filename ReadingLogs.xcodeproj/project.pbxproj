@@ -66,10 +66,8 @@
 		A39ABEEC2B6F75A4009498EA /* Books */ = {
 			isa = PBXGroup;
 			children = (
-				A3A59E432B66131E00245973 /* BookListView.swift */,
-				A3A59E412B660B6600245973 /* AddNewBookView.swift */,
-				A3A59E452B6614FA00245973 /* BookCellView.swift */,
-				A3A59E472B661A7F00245973 /* BookDetailView.swift */,
+				A39ABEF92B70DB5C009498EA /* Model */,
+				A39ABEF82B70DB51009498EA /* Views */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -77,10 +75,8 @@
 		A39ABEED2B6F75AD009498EA /* Genres */ = {
 			isa = PBXGroup;
 			children = (
-				A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */,
-				A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */,
-				A39ABEE62B6F6A00009498EA /* GenreListView.swift */,
-				A39ABEEF2B6F82EC009498EA /* GenreDetailsView.swift */,
+				A39ABEF52B70DB16009498EA /* Views */,
+				A39ABEF42B70DB07009498EA /* Model */,
 			);
 			path = Genres;
 			sourceTree = "<group>";
@@ -88,8 +84,8 @@
 		A39ABEEE2B6F75B4009498EA /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				A39ABEE02B6F5EB3009498EA /* AddNewNoteView.swift */,
-				A39ABEE22B6F61E4009498EA /* NotesListView.swift */,
+				A39ABEF72B70DB3F009498EA /* Views */,
+				A39ABEF62B70DB26009498EA /* Model */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -100,6 +96,61 @@
 				A39ABEF12B6F88E8009498EA /* HiddentModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		A39ABEF42B70DB07009498EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABEE42B6F687E009498EA /* Genre.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A39ABEF52B70DB16009498EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */,
+				A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */,
+				A39ABEE62B6F6A00009498EA /* GenreListView.swift */,
+				A39ABEEF2B6F82EC009498EA /* GenreDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A39ABEF62B70DB26009498EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABEDE2B6F5B60009498EA /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A39ABEF72B70DB3F009498EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABEE02B6F5EB3009498EA /* AddNewNoteView.swift */,
+				A39ABEE22B6F61E4009498EA /* NotesListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A39ABEF82B70DB51009498EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3A59E432B66131E00245973 /* BookListView.swift */,
+				A3A59E412B660B6600245973 /* AddNewBookView.swift */,
+				A3A59E452B6614FA00245973 /* BookCellView.swift */,
+				A3A59E472B661A7F00245973 /* BookDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A39ABEF92B70DB5C009498EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3A59E3E2B66098A00245973 /* Book.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A3A59E202B6608C900245973 = {
@@ -122,9 +173,10 @@
 		A3A59E2B2B6608C900245973 /* ReadingLogs */ = {
 			isa = PBXGroup;
 			children = (
+				A39ABEED2B6F75AD009498EA /* Genres */,
+				A39ABEEE2B6F75B4009498EA /* Notes */,
+				A39ABEEC2B6F75A4009498EA /* Books */,
 				A39ABEF32B6F89ED009498EA /* Modifiers */,
-				A3A59E402B660B5600245973 /* Views */,
-				A3A59E3D2B66097400245973 /* Model */,
 				A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */,
 				A3A59E2E2B6608C900245973 /* ContentView.swift */,
 				A3A59E302B6608CB00245973 /* Assets.xcassets */,
@@ -140,26 +192,6 @@
 				A3A59E342B6608CB00245973 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A3A59E3D2B66097400245973 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A3A59E3E2B66098A00245973 /* Book.swift */,
-				A39ABEDE2B6F5B60009498EA /* Note.swift */,
-				A39ABEE42B6F687E009498EA /* Genre.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A3A59E402B660B5600245973 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A39ABEEE2B6F75B4009498EA /* Notes */,
-				A39ABEED2B6F75AD009498EA /* Genres */,
-				A39ABEEC2B6F75A4009498EA /* Books */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
