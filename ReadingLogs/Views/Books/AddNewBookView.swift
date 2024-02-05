@@ -48,16 +48,20 @@ struct AddNewBookView: View {
                 HStack{
                     PhotosPicker( selection: $selectedCover, matching: .images, photoLibrary: .shared()){
                         
-                        Label("Add Cover", systemImage: "book.title")
+                        Label("Add Cover", systemImage: "book.closed")
                     }
                     .padding()
                     
                     Spacer()
                     
-                    if let selectedCover {
-                        
-                        Text("Selected Image will be here.")
-                        
+                    if let selectedCoverData,
+                       let image = UIImage(data: selectedCoverData){
+                                                
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(.rect(cornerRadius: 10))
+                            .frame(width: 100, height: 100)
                     }
                     else {
                         Image(systemName: "photo")
@@ -115,6 +119,12 @@ struct AddNewBookView: View {
             }
             .padding()
             .navigationTitle("Add New Book")
+            .task(id: selectedCover) {
+                // set selected image
+                if let data = try? await selectedCover?.loadTransferable(type: Data.self){
+                    selectedCoverData = data
+                }
+            }
         }
     }
 }
