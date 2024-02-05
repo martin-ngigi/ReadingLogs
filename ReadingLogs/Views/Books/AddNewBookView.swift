@@ -56,7 +56,7 @@ struct AddNewBookView: View {
                     
                     if let selectedCover {
                         
-                        Text("Selected Image will be here")
+                        Text("Selected Image will be here.")
                         
                     }
                     else {
