@@ -19,7 +19,7 @@ struct BookCellView: View {
                         .resizable()
                         .scaledToFit()
                         .clipShape(.rect(cornerRadius: 5))
-                        .frame(width: 100, height: 170)
+                        .frame(width: 80, height: 140)
                 }
                 VStack(alignment: .leading){
                     Text(book.title)
