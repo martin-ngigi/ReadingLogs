@@ -15,6 +15,11 @@ final class Book {
     var author: String
     var publishedYear: Int
     
+    // image is not stored in the swift data for efficiency purposes
+    // only a reference of the image is store in the databse
+    @Attribute(.externalStorage)
+    var cover: Data?
+    
     // .cascade: Whenever this Book is Deleted, Delete Note as well
     // inverse referenceses the Note
     // This is a oneToMany relationship

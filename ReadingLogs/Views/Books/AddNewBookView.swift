@@ -7,12 +7,17 @@
 
 import SwiftUI
 import SwiftData
+import PhotosUI
 
 struct AddNewBookView: View {
     
     @State private var title: String = ""
     @State private var author: String = ""
     @State private var publishedYear: Int?
+    
+    
+    @State private var selectedCover: PhotosPickerItem?
+    @State private var selectedCoverData: Data?
     
     //context will be used to access and save our records
     @Environment(\.modelContext) private var context
@@ -39,12 +44,36 @@ struct AddNewBookView: View {
                 TextField("Enter book author", text: $author)
                     .textFieldStyle(.roundedBorder)
                 
+                // Cover  Image
+                HStack{
+                    PhotosPicker( selection: $selectedCover, matching: .images, photoLibrary: .shared()){
+                        
+                        Label("Add Cover", systemImage: "book.title")
+                    }
+                    .padding()
+                    
+                    Spacer()
+                    
+                    if let selectedCover {
+                        
+                        Text("Selected Image will be here")
+                        
+                    }
+                    else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    }
+                }
+                
                 // Year
                 Text("Published year")
                 TextField("Enter published year", value: $publishedYear, format: .number)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.numberPad)
                 
+                // Genre
                 GenereSelectionView(selectedGenres: $selectedGenres)
                 
                 HStack{
