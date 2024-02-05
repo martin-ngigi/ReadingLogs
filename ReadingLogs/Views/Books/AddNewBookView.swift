@@ -59,7 +59,7 @@ struct AddNewBookView: View {
                                                 
                         Image(uiImage: image)
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                             .clipShape(.rect(cornerRadius: 10))
                             .frame(width: 100, height: 100)
                     }
@@ -92,11 +92,16 @@ struct AddNewBookView: View {
                         guard let publishedYear else { return }
                         let book = Book(title: title, author: author, publishedYear: publishedYear)
                         
-                        ///save genre
+                        ///set  genre
                         book.genre = Array(selectedGenres)
                         selectedGenres.forEach { genre in
                             genre.books.append(book)
                             context.insert(genre)
+                        }
+                        
+                        //set cover image
+                        if let selectedCoverData {
+                            book.cover = selectedCoverData
                         }
                         
                         

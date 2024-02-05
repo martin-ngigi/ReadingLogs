@@ -113,7 +113,7 @@ struct BookDetailView: View {
                     }
                     
                     if book.notes.isEmpty {
-                        ContentUnavailableView("No notes", image: "notes")
+                        ContentUnavailableView("No notes", systemImage: "pencil.and.list.clipboard")
                     }
                     else{
                         NotesListView(book: book)
