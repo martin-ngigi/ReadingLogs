@@ -16,6 +16,8 @@
 		A39ABEEB2B6F758D009498EA /* GenereSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */; };
 		A39ABEF02B6F82EC009498EA /* GenreDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEEF2B6F82EC009498EA /* GenreDetailsView.swift */; };
 		A39ABEF22B6F88E8009498EA /* HiddentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEF12B6F88E8009498EA /* HiddentModifier.swift */; };
+		A39ABEFB2B70E3D7009498EA /* GenreSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEFA2B70E3D7009498EA /* GenreSortOrder.swift */; };
+		A39ABEFF2B70E4D4009498EA /* GenreListSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEFE2B70E4D4009498EA /* GenreListSubView.swift */; };
 		A3A59E2D2B6608C900245973 /* ReadingLogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */; };
 		A3A59E2F2B6608C900245973 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E2E2B6608C900245973 /* ContentView.swift */; };
 		A3A59E312B6608CB00245973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3A59E302B6608CB00245973 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenereSelectionView.swift; sourceTree = "<group>"; };
 		A39ABEEF2B6F82EC009498EA /* GenreDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreDetailsView.swift; sourceTree = "<group>"; };
 		A39ABEF12B6F88E8009498EA /* HiddentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddentModifier.swift; sourceTree = "<group>"; };
+		A39ABEFA2B70E3D7009498EA /* GenreSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSortOrder.swift; sourceTree = "<group>"; };
+		A39ABEFE2B70E4D4009498EA /* GenreListSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListSubView.swift; sourceTree = "<group>"; };
 		A3A59E292B6608C900245973 /* ReadingLogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingLogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingLogsApp.swift; sourceTree = "<group>"; };
 		A3A59E2E2B6608C900245973 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A39ABEE42B6F687E009498EA /* Genre.swift */,
+				A39ABEFA2B70E3D7009498EA /* GenreSortOrder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 		A39ABEF52B70DB16009498EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A39ABEFE2B70E4D4009498EA /* GenreListSubView.swift */,
 				A39ABEEA2B6F758D009498EA /* GenereSelectionView.swift */,
 				A39ABEE82B6F6BAC009498EA /* AddNewGenreView.swift */,
 				A39ABEE62B6F6A00009498EA /* GenreListView.swift */,
@@ -270,9 +276,11 @@
 				A3A59E462B6614FA00245973 /* BookCellView.swift in Sources */,
 				A39ABEE12B6F5EB3009498EA /* AddNewNoteView.swift in Sources */,
 				A39ABEE52B6F687E009498EA /* Genre.swift in Sources */,
+				A39ABEFF2B70E4D4009498EA /* GenreListSubView.swift in Sources */,
 				A3A59E2F2B6608C900245973 /* ContentView.swift in Sources */,
 				A39ABEDF2B6F5B60009498EA /* Note.swift in Sources */,
 				A3A59E442B66131E00245973 /* BookListView.swift in Sources */,
+				A39ABEFB2B70E3D7009498EA /* GenreSortOrder.swift in Sources */,
 				A3A59E2D2B6608C900245973 /* ReadingLogsApp.swift in Sources */,
 				A3A59E3F2B66098A00245973 /* Book.swift in Sources */,
 				A39ABEE32B6F61E4009498EA /* NotesListView.swift in Sources */,

@@ -10,31 +10,40 @@ import SwiftData
 
 struct GenreListView: View {
     
+    // Filter
+    //Similar to : SELECT * FROM TableName WHERE ColumnName CONTAINS 'keywords'
+//    @Query(
+//        FetchDescriptor<Genre>(predicate: #Predicate {
+//            $0.name.localizedStandardContains("Fiction")
+//        }),
+//         animation: .bouncy
+//    )
+    
+    // Sort
     // Help us define whether our record should be sorted in certain creteria
-    @Query(sort: \Genre.name)
-    private var genres: [Genre]
+    // @Query(sort: \Genre.name, order: .forward, animation: .bouncy)
+    
+    // Sort and Filter
+//    @Query(
+//        filter: #Predicate {
+//            $0.name.localizedStandardContains("Fiction")
+//        },
+//        sort: \Genre.name,
+//        order: .reverse,
+//        animation: .bouncy
+//    )
+    
     
     @State private var presentAddNew = false
-    
-    @Environment(\.modelContext) private var context
-    
+    @State private var sortOrder: GenreSortOrder = .forward
+        
     var body: some View {
         NavigationStack{
-            List{
-                ForEach(genres) { genre in
-                    
-                    // pass genre along from GenreListView to GenreDetailView
-                    NavigationLink(value: genre) {
-                        Text(genre.name)
-                    }
-                }
-                .onDelete(perform: deleteGenre(indexSet:))
-            }
-            .navigationDestination(for: Genre.self, destination: { genre in
-                GenreDetailsView(genre: genre)
-            })
+            GenreListSubView(sortOrder: sortOrder)
             .navigationTitle("Literery Genre")
             .toolbar{
+                
+                // Add New Genre
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
                         presentAddNew.toggle()
@@ -48,23 +57,22 @@ struct GenreListView: View {
                             .interactiveDismissDisabled() // present unwanted dismismiss
                     }
                 }
+                
+                // Sort
+                ToolbarItem(placement: .topBarLeading) {
+                    Button{
+                        sortOrder = sortOrder == GenreSortOrder.forward ? GenreSortOrder.reverse : GenreSortOrder.forward
+                    } label: {
+                        Image(systemName: sortOrder == GenreSortOrder.forward ?  "arrow.down" : "arrow.up")
+                    }
+                    .buttonStyle(.bordered)
+                    
+                }
             }
         }
     }
     
-    private func deleteGenre(indexSet: IndexSet) {
-        indexSet.forEach { index in
-            let genreToDelete = genres[index]
-            context.delete(genreToDelete)
-            
-            do{
-                try context.save()
-            }
-            catch{
-                print("DEBUG: Failed to delete genre with error \(error.localizedDescription)")
-            }
-        }
-    }
+
 }
 
 //#Preview {
