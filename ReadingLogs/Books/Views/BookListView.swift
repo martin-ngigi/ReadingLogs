@@ -18,6 +18,8 @@ struct BookListView: View {
     
     @State private var searchTerm = ""
     
+    @State private var bookSortOption = SortingOption.none
+    
 //    var filteredBooks: [Book] {
 //        // if searchItem is empty, return initial books list
 //        guard searchTerm.isEmpty == false else { return books}
@@ -36,7 +38,7 @@ struct BookListView: View {
 //                }
 //                .onDelete(perform: delete(indexSet:))
 //            }
-            BookListSubView(searchTerm: searchTerm)
+            BookListSubView(searchTerm: searchTerm, bookSortOption: bookSortOption)
             .searchable(
                 text: $searchTerm,
                 placement: .navigationBarDrawer(displayMode: .always),
@@ -48,6 +50,7 @@ struct BookListView: View {
             }
             .toolbar{
                 
+                // Add new book
                 ToolbarItem(placement: .topBarTrailing) {
                     
                     Button{
@@ -55,10 +58,23 @@ struct BookListView: View {
                     } label: {
                         Image(systemName: "plus.circle.fill")
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
                     .sheet(isPresented: $presentAddNew, content: {
                         AddNewBookView()
                     })
+                }
+                
+                // Sort Books
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        ForEach(SortingOption.allCases) { sortOption in
+                            Button(sortOption.title) {
+                                bookSortOption = sortOption
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
                 }
             }
         }
