@@ -16,28 +16,29 @@ struct BookListView: View {
     
     @State private var presentAddNew = false
     
-    @State private var searchItem = ""
-    var filteredBooks: [Book] {
-        // if searchItem is empty, return initial books list
-        guard searchItem.isEmpty == false else { return books}
-        
-        // else return searched books
-        return books.filter {
-            $0.title.localizedCaseInsensitiveContains(searchItem)
-        }
-    }
+    @State private var searchTerm = ""
+    
+//    var filteredBooks: [Book] {
+//        // if searchItem is empty, return initial books list
+//        guard searchTerm.isEmpty == false else { return books}
+//        
+//        // else return searched books
+//        return books.filter {
+//            $0.title.localizedCaseInsensitiveContains(searchTerm)
+//        }
+//    }
     
     var body: some View {
         NavigationStack {
-            List {
-//                ForEach(books){ book in
-                ForEach(filteredBooks){ book in
-                    BookCellView(book: book)
-                }
-                .onDelete(perform: delete(indexSet:))
-            }
+//            List {
+//                ForEach(filteredBooks){ book in
+//                    BookCellView(book: book)
+//                }
+//                .onDelete(perform: delete(indexSet:))
+//            }
+            BookListSubView(searchTerm: searchTerm)
             .searchable(
-                text: $searchItem,
+                text: $searchTerm,
                 placement: .navigationBarDrawer(displayMode: .always),
                 prompt: "Search book title"
             )
@@ -63,19 +64,19 @@ struct BookListView: View {
         }
     }
     
-    private func delete(indexSet: IndexSet){
-        indexSet.forEach { index in
-            let book = books[index]
-            context.delete(book)
-            
-            do{
-                try context.save()
-            }
-            catch{
-                print("DEBUG: Failed to delete book with error \(error.localizedDescription)")
-            }
-        }
-    }
+//    private func delete(indexSet: IndexSet){
+//        indexSet.forEach { index in
+//            let book = books[index]
+//            context.delete(book)
+//            
+//            do{
+//                try context.save()
+//            }
+//            catch{
+//                print("DEBUG: Failed to delete book with error \(error.localizedDescription)")
+//            }
+//        }
+//    }
 }
 
 #Preview {
