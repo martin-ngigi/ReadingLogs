@@ -20,6 +20,13 @@
 		A39ABEFF2B70E4D4009498EA /* GenreListSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABEFE2B70E4D4009498EA /* GenreListSubView.swift */; };
 		A39ABF012B721A1A009498EA /* BookListSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABF002B721A1A009498EA /* BookListSubView.swift */; };
 		A39ABF032B72686F009498EA /* SortingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39ABF022B72686F009498EA /* SortingOption.swift */; };
+		A39ABF062B735BE6009498EA /* BookList.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF052B735BE6009498EA /* BookList.png */; };
+		A39ABF082B735C0D009498EA /* AddBook.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF072B735C0D009498EA /* AddBook.png */; };
+		A39ABF0A2B735C55009498EA /* Sort.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF092B735C54009498EA /* Sort.png */; };
+		A39ABF0C2B735C85009498EA /* BookDetails.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF0B2B735C85009498EA /* BookDetails.png */; };
+		A39ABF0E2B735CAD009498EA /* GenreList.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF0D2B735CAD009498EA /* GenreList.png */; };
+		A39ABF102B735CEA009498EA /* AddGenre.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF0F2B735CEA009498EA /* AddGenre.png */; };
+		A39ABF122B735D0D009498EA /* BooksInGenre.png in Resources */ = {isa = PBXBuildFile; fileRef = A39ABF112B735D0D009498EA /* BooksInGenre.png */; };
 		A3A59E2D2B6608C900245973 /* ReadingLogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */; };
 		A3A59E2F2B6608C900245973 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A59E2E2B6608C900245973 /* ContentView.swift */; };
 		A3A59E312B6608CB00245973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3A59E302B6608CB00245973 /* Assets.xcassets */; };
@@ -46,6 +53,13 @@
 		A39ABEFE2B70E4D4009498EA /* GenreListSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListSubView.swift; sourceTree = "<group>"; };
 		A39ABF002B721A1A009498EA /* BookListSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListSubView.swift; sourceTree = "<group>"; };
 		A39ABF022B72686F009498EA /* SortingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOption.swift; sourceTree = "<group>"; };
+		A39ABF052B735BE6009498EA /* BookList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BookList.png; sourceTree = "<group>"; };
+		A39ABF072B735C0D009498EA /* AddBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddBook.png; sourceTree = "<group>"; };
+		A39ABF092B735C54009498EA /* Sort.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sort.png; sourceTree = "<group>"; };
+		A39ABF0B2B735C85009498EA /* BookDetails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BookDetails.png; sourceTree = "<group>"; };
+		A39ABF0D2B735CAD009498EA /* GenreList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenreList.png; sourceTree = "<group>"; };
+		A39ABF0F2B735CEA009498EA /* AddGenre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddGenre.png; sourceTree = "<group>"; };
+		A39ABF112B735D0D009498EA /* BooksInGenre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BooksInGenre.png; sourceTree = "<group>"; };
 		A3A59E292B6608C900245973 /* ReadingLogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingLogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A59E2C2B6608C900245973 /* ReadingLogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingLogsApp.swift; sourceTree = "<group>"; };
 		A3A59E2E2B6608C900245973 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,9 +179,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A39ABF042B735B63009498EA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A39ABF052B735BE6009498EA /* BookList.png */,
+				A39ABF072B735C0D009498EA /* AddBook.png */,
+				A39ABF092B735C54009498EA /* Sort.png */,
+				A39ABF0B2B735C85009498EA /* BookDetails.png */,
+				A39ABF0D2B735CAD009498EA /* GenreList.png */,
+				A39ABF0F2B735CEA009498EA /* AddGenre.png */,
+				A39ABF112B735D0D009498EA /* BooksInGenre.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		A3A59E202B6608C900245973 = {
 			isa = PBXGroup;
 			children = (
+				A39ABF042B735B63009498EA /* Images */,
 				A3A59E3B2B66092000245973 /* Readme.MD */,
 				A3A59E2B2B6608C900245973 /* ReadingLogs */,
 				A3A59E2A2B6608C900245973 /* Products */,
@@ -264,8 +293,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39ABF082B735C0D009498EA /* AddBook.png in Resources */,
+				A39ABF122B735D0D009498EA /* BooksInGenre.png in Resources */,
 				A3A59E352B6608CB00245973 /* Preview Assets.xcassets in Resources */,
 				A3A59E312B6608CB00245973 /* Assets.xcassets in Resources */,
+				A39ABF102B735CEA009498EA /* AddGenre.png in Resources */,
+				A39ABF0A2B735C55009498EA /* Sort.png in Resources */,
+				A39ABF0C2B735C85009498EA /* BookDetails.png in Resources */,
+				A39ABF0E2B735CAD009498EA /* GenreList.png in Resources */,
+				A39ABF062B735BE6009498EA /* BookList.png in Resources */,
 				A3A59E3C2B66092100245973 /* Readme.MD in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
