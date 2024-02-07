@@ -32,11 +32,21 @@ struct BookListSubView: View {
     
     
     var body: some View {
-        List {
-            ForEach(books){ book in
-                BookCellView(book: book)
+        Group {
+            if !books.isEmpty {
+                List {
+                    ForEach(books){ book in
+                        BookCellView(book: book)
+                    }
+                    .onDelete(perform: delete(indexSet:))
+                }
             }
-            .onDelete(perform: delete(indexSet:))
+            else if searchTerm.isEmpty {
+                ContentUnavailableView("No Books Yet, Start by adding one", systemImage: "square.stack.3d.up.fill" )
+            }
+            else {
+                ContentUnavailableView.search(text: searchTerm)
+            }
         }
     }
     
