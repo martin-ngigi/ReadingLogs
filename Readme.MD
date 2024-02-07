@@ -7,7 +7,7 @@ BookList
 
 Book List          |  Add Book
 :-------------------------:|:-------------------------:
-<img src="Images/BookList.png" width="300"> | <img src=Images/AddBook.png" width="300">
+<img src="Images/BookList.png" width="300"> | <img src="Images/AddBook.png" width="300">
 
 Sort Books          |  Book Details
 :-------------------------:|:-------------------------:
