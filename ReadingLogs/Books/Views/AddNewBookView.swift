@@ -10,7 +10,7 @@ import SwiftData
 import PhotosUI
 
 struct AddNewBookView: View {
-    
+    @StateObject private var viewModel = BooksViewModel()
     @State private var title: String = ""
     @State private var author: String = ""
     @State private var publishedYear: Int?
@@ -105,7 +105,8 @@ struct AddNewBookView: View {
                         }
                         
                         
-                        context.insert(book)
+                        //context.insert(book)
+                        viewModel.addBook(book: book)
                         
                         do {
                             try context.save()

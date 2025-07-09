@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -73,6 +73,11 @@
 		A3A59E452B6614FA00245973 /* BookCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellView.swift; sourceTree = "<group>"; };
 		A3A59E472B661A7F00245973 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		86A87D962E1E4EDE00A1AA7F /* DataSource */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DataSource; sourceTree = "<group>"; };
+		86A87D992E1E4F7C00A1AA7F /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A3A59E262B6608C900245973 /* Frameworks */ = {
@@ -214,6 +219,8 @@
 		A3A59E2B2B6608C900245973 /* ReadingLogs */ = {
 			isa = PBXGroup;
 			children = (
+				86A87D992E1E4F7C00A1AA7F /* ViewModels */,
+				86A87D962E1E4EDE00A1AA7F /* DataSource */,
 				A39ABEED2B6F75AD009498EA /* Genres */,
 				A39ABEEE2B6F75B4009498EA /* Notes */,
 				A39ABEEC2B6F75A4009498EA /* Books */,
@@ -249,6 +256,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				86A87D962E1E4EDE00A1AA7F /* DataSource */,
+				86A87D992E1E4F7C00A1AA7F /* ViewModels */,
 			);
 			name = ReadingLogs;
 			productName = ReadingLogs;
